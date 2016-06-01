@@ -1,0 +1,343 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">x86</Platform>
+    <ProductVersion>8.0.30703</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{EA855F6C-C8FF-4601-900B-202D93469512}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>New_Control_System</RootNamespace>
+    <AssemblyName>New Control System</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <TargetFrameworkProfile>Client</TargetFrameworkProfile>
+    <FileAlignment>512</FileAlignment>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|x86' ">
+    <PlatformTarget>x86</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>HJ.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Admin.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Admin.Designer.cs">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Admin_setting.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Admin_setting.Designer.cs">
+      <DependentUpon>Admin_setting.cs</DependentUpon>
+    </Compile>
+    <Compile Include="att_button.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="att_button.Designer.cs">
+      <DependentUpon>att_button.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BasicSocket.cs" />
+    <Compile Include="BigDad.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="BigDad.Designer.cs">
+      <DependentUpon>BigDad.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bts1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="bts1.Designer.cs">
+      <DependentUpon>bts1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bts2.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="bts2.Designer.cs">
+      <DependentUpon>bts2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bts3.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="bts3.Designer.cs">
+      <DependentUpon>bts3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="bts4.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="bts4.Designer.cs">
+      <DependentUpon>bts4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Communications.cs" />
+    <Compile Include="Control.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Control.Designer.cs">
+      <DependentUpon>Control.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CSV.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="CSV.Designer.cs">
+      <DependentUpon>CSV.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CSVReader.cs" />
+    <Compile Include="Device.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Device.Designer.cs">
+      <DependentUpon>Device.cs</DependentUpon>
+    </Compile>
+    <Compile Include="device_add.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="device_add.Designer.cs">
+      <DependentUpon>device_add.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form1.Designer.cs">
+      <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Form_model.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Form_model.Designer.cs">
+      <DependentUpon>Form_model.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Free_Field.cs" />
+    <Compile Include="Global.cs" />
+    <Compile Include="ListData.cs" />
+    <Compile Include="LogContext.cs" />
+    <Compile Include="login.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="login.Designer.cs">
+      <DependentUpon>login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="newaccount.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="newaccount.Designer.cs">
+      <DependentUpon>newaccount.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Setting_att.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Setting_att.Designer.cs">
+      <DependentUpon>Setting_att.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Sweep.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Sweep.Designer.cs">
+      <DependentUpon>Sweep.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl1.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl1.Designer.cs">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserControl_chart.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UserControl_chart.Designer.cs">
+      <DependentUpon>UserControl_chart.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Admin.resx">
+      <DependentUpon>Admin.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Admin_setting.resx">
+      <DependentUpon>Admin_setting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="att_button.resx">
+      <DependentUpon>att_button.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BigDad.resx">
+      <DependentUpon>BigDad.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bts1.resx">
+      <DependentUpon>bts1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bts2.resx">
+      <DependentUpon>bts2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bts3.resx">
+      <DependentUpon>bts3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="bts4.resx">
+      <DependentUpon>bts4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Control.resx">
+      <DependentUpon>Control.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CSV.resx">
+      <DependentUpon>CSV.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Device.resx">
+      <DependentUpon>Device.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="device_add.resx">
+      <DependentUpon>device_add.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form1.resx">
+      <DependentUpon>Form1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Form_model.resx">
+      <DependentUpon>Form_model.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="login.resx">
+      <DependentUpon>login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="newaccount.resx">
+      <DependentUpon>newaccount.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Setting_att.resx">
+      <DependentUpon>Setting_att.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Sweep.resx">
+      <DependentUpon>Sweep.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl1.resx">
+      <DependentUpon>UserControl1.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserControl_chart.resx">
+      <DependentUpon>UserControl_chart.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <None Include="app.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.0,Profile=Client">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4 Client Profile %28x86 和 x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Windows.Installer.3.1">
+      <Visible>False</Visible>
+      <ProductName>Windows Installer 3.1</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\新 logo 红黑灰-blank.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="HJ.ico" />
+    <None Include="Resources\disconnectbt2.png" />
+    <None Include="Resources\connectbt1.png" />
+    <None Include="Resources\connectbt.png" />
+    <None Include="Resources\red_car.png" />
+    <None Include="Resources\blue_car.png" />
+    <None Include="Resources\b4.png" />
+    <None Include="Resources\b3.png" />
+    <None Include="Resources\b2.png" />
+    <None Include="Resources\b1.png" />
+    <None Include="Resources\smlogo.png" />
+    <None Include="Resources\stop1.png" />
+    <None Include="Resources\stop.png" />
+    <None Include="Resources\run.png" />
+    <None Include="Resources\add.png" />
+    <None Include="Resources\700e1311d210d17fca1a036b7e0afb38.jpg" />
+    <None Include="Resources\loading.gif" />
+    <None Include="Resources\redlight.png" />
+    <None Include="Resources\greenlight.png" />
+    <None Include="Resources\welcom.png" />
+    <None Include="Resources\111.png" />
+    <None Include="Resources\SDSA.png" />
+    <None Include="Resources\show_connect1.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
