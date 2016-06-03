@@ -12,6 +12,7 @@ namespace New_Control_System
     public partial class Device : UserControl
     {
         Form1 dad;
+        BigDad newdad;
         public Device()
         {
             InitializeComponent();
@@ -186,7 +187,7 @@ namespace New_Control_System
             dad.set_devices(0);
             if (!connection)
             {
-                BigDad newdad = new BigDad(dad);
+                newdad = new BigDad(dad);
                 newdad.set_dad(IP_info, Port_info);
                 if (newdad.Link_socket())
                 {
@@ -207,9 +208,10 @@ namespace New_Control_System
                     newdad.dad.button1.Enabled = true;
                     newdad.dad.listBox1.Enabled = true;
                     newdad.ct.bt_admin.Enabled = true;
-                    newdad.cs.sendvalue("ALLCH", 1000, "ALLCH", false);
+
                     newdad.cs.sendvalue("CHA", 1000, "CHA", false);
                     dad.tabControl1.SelectedIndex = dad.tabControl1.TabCount - 1;
+                    newdad.cs.sendvalue("ALLCH", 1000, "ALLCH", false);
                     connection = true;
                 }
                 else
@@ -217,6 +219,10 @@ namespace New_Control_System
                     newdad.Dispose();
                     connection = false;
                 }
+            }
+            else
+            {
+                close();
             }
             dad.set_devices(1);
             re_fresh();
@@ -240,6 +246,16 @@ namespace New_Control_System
         private void button1_MouseUp(object sender, MouseEventArgs e)
         {
             button1.BackColor = Color.PowderBlue;
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            for (int i = 0; i < dad.tabControl1.TabPages.Count; i++)
+            {
+                if (dad.tabControl1.TabPages[i].Text == IP_info)
+                    dad.tabControl1.SelectedIndex = i;
+            }
+                
         }
 
      

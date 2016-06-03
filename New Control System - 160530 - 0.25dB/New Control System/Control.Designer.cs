@@ -186,7 +186,7 @@
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(74, 23);
             this.button2.TabIndex = 30;
-            this.button2.Text = "Release All";
+            this.button2.Text = "Unlock";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -198,7 +198,7 @@
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(73, 23);
             this.button1.TabIndex = 29;
-            this.button1.Text = "Reserve";
+            this.button1.Text = "Lock";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -279,14 +279,15 @@
             // 
             // tbar1
             // 
-            this.tbar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbar1.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tbar1.AutoSize = false;
+            this.tbar1.BackColor = System.Drawing.SystemColors.Control;
             this.tbar1.LargeChange = 20;
             this.tbar1.Location = new System.Drawing.Point(2, 392);
             this.tbar1.Maximum = 220;
             this.tbar1.Name = "tbar1";
-            this.tbar1.Size = new System.Drawing.Size(667, 21);
+            this.tbar1.Size = new System.Drawing.Size(667, 28);
             this.tbar1.TabIndex = 43;
             this.tbar1.TickFrequency = 20;
             this.tbar1.Scroll += new System.EventHandler(this.tbar1_Scroll);
@@ -447,9 +448,9 @@
             // 
             // panel1
             // 
-            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.panel1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.panel1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.panel1.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.panel1.Location = new System.Drawing.Point(3, 3);
@@ -533,9 +534,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.pictureBox1.Image = global::New_Control_System.Properties.Resources.show_connect1;
             this.pictureBox1.Location = new System.Drawing.Point(94, 26);
             this.pictureBox1.Name = "pictureBox1";
@@ -720,6 +721,7 @@
             this.csv1.Name = "csv1";
             this.csv1.Size = new System.Drawing.Size(744, 410);
             this.csv1.TabIndex = 0;
+            this.csv1.Load += new System.EventHandler(this.csv1_Load);
             // 
             // Control
             // 

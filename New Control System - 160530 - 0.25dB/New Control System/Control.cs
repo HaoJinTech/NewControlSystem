@@ -28,7 +28,7 @@ namespace New_Control_System
         int io_length = 0;
         int io_height = 0;
         int space_x = 5;
-        int space_y = 5;
+        int space_y = 6;
         private void Control_Load(object sender, EventArgs e)
         {
           //dad.userControl_chart1.ADD_ALL_SERIES();
@@ -143,8 +143,8 @@ namespace New_Control_System
                 port_in[x] = new Label();
                 port_in[x].Width = io_length - xiuzheng;
                 port_in[x].Height = io_height;
-                port_in[x].Left = space_x;
-                port_in[x].Top = (io_height + space_y) * (x + 2);
+                port_in[x].Left = space_x / 2;
+                port_in[x].Top = (io_height + space_y) * (x + 2) - space_y / 2;
                 port_in[x].BackColor = Color.Gold;
                 port_in[x].ForeColor = Color.Black;
                 port_in[x].Text = "IN " + (x + 1).ToString();
@@ -158,8 +158,8 @@ namespace New_Control_System
                 port_out[y] = new CheckBox();
                 port_out[y].Width = io_length;
                 port_out[y].Height = io_height * 2;
-                port_out[y].Top = space_y;
-                port_out[y].Left = space_x + (io_length + space_x) * (y + 1) - xiuzheng;
+                port_out[y].Top = space_y / 2;
+                port_out[y].Left = space_x / 2 + (io_length + space_x) * (y + 1) - xiuzheng;
                 port_out[y].BackColor = Color.Gold;
                 port_out[y].ForeColor = Color.Black;
                 port_out[y].Text = "OUT" + (y + 1).ToString();
@@ -433,15 +433,15 @@ namespace New_Control_System
             {
                 port_in[x].Width = io_length - xiuzheng;
                 port_in[x].Height = io_height;
-                port_in[x].Left = space_x;
-                port_in[x].Top = (io_height + space_y) * (x + 2);
+                port_in[x].Left = space_x / 2;
+                port_in[x].Top = (io_height + space_y) * (x + 2) - space_y / 2;
             }
             for (int y = 0; y < port_out.Length; y++)
             {
                 port_out[y].Width = io_length;
                 port_out[y].Height = io_height * 2;
-                port_out[y].Top = space_y;
-                port_out[y].Left = space_x + (io_length + space_x) * (y + 1) - xiuzheng;
+                port_out[y].Top = space_y / 2;
+                port_out[y].Left = space_x / 2 + (io_length + space_x) * (y + 1) - xiuzheng;
             }
             for (int a = 0; a < port_in.Length; a++)
             {
@@ -796,6 +796,11 @@ namespace New_Control_System
         }
 
         private void label20_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void csv1_Load(object sender, EventArgs e)
         {
 
         }

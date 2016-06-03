@@ -133,10 +133,12 @@ namespace New_Control_System
         }
         public void Re_set()
         {
-            ct.sweep1.panel2.Controls.Clear();
+            if (ct.sweep1 != null)
+                ct.sweep1.panel2.Controls.Clear();
             ucc = new UserControl_chart();
             ucc.Dock = DockStyle.Fill;
-            ct.sweep1.panel2.Controls.Add(ucc);
+            if (ct.sweep1 != null)
+                ct.sweep1.panel2.Controls.Add(ucc);
             ucc.timer1.Enabled = true;
             for (int a = 0; a < 8; a++)
             {
@@ -163,13 +165,15 @@ namespace New_Control_System
                 login_id = (dad.listBox1.SelectedIndex + 1).ToString();
                 this.Text = dad.title + " USER: " + login_id;
                 ct.lb_user.Text = "USER: " + login_id;
-                ct.sweep1.lbl_swp.Text = "USER: " + login_id;
+                if (ct.sweep1 != null)
+                    ct.sweep1.lbl_swp.Text = "USER: " + login_id;
                 if (login_id != "0")
                 {
                     ct.Set_canbe(1);
                 }
                 cs.sendvalue("ALLCH", 1000, "ALLCH", false);
-                ct.sweep1.res_changed();
+                if (ct.sweep1 != null)
+                    ct.sweep1.res_changed();
                 Re_set();
             }
         }

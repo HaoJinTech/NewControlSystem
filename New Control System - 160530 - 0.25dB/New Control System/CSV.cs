@@ -117,16 +117,16 @@ namespace New_Control_System
                     {
                         dataGridView1.FirstDisplayedScrollingRowIndex = dataGridView1.Rows[current_row - 1].Index;
                     }
-                    string str = "SA ";
+                    string str = "ATT ";
                     for (int i = 0; i < List_sending_ch.Count; i++)
                     {
-                        str += List_sending_ch[i].ToString() + " " + dataGridView1.Rows[current_row].Cells[i + 1].Value.ToString() + " ";
+                        str += ((List_sending_ch[i] - 1) / 8 + 1) + " " + ((List_sending_ch[i] - 1) % 8 + 1) + " " + dataGridView1.Rows[current_row].Cells[i + 1].Value.ToString() + " ";
                     }
-                    if (str != "SA ")
+                    if (str != "ATT ")
                     {
                         try
                         {
-                            if (dad.cs.sendvalue(str, 2000, "sa", !dad.reserved))
+                            if (dad.cs.sendvalue(str, 2000, "ATT", !dad.reserved))
                             {
 
                                 Thread.Sleep(int.Parse(dataGridView1.Rows[current_row].Cells[0].Value.ToString()));

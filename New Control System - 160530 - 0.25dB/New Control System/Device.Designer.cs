@@ -34,12 +34,13 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(99, 0);
+            this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.button2.BackColor = System.Drawing.Color.Red;
+            this.button2.Location = new System.Drawing.Point(101, 0);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(23, 17);
+            this.button2.Size = new System.Drawing.Size(23, 21);
             this.button2.TabIndex = 2;
-            this.button2.Text = "-";
-            this.button2.UseVisualStyleBackColor = true;
+            this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button1
@@ -49,14 +50,14 @@
             this.button1.Font = new System.Drawing.Font("微软雅黑", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Image = global::New_Control_System.Properties.Resources.connectbt1;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(-3, 0);
+            this.button1.Location = new System.Drawing.Point(0, 2);
             this.button1.Name = "button1";
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button1.Size = new System.Drawing.Size(122, 17);
+            this.button1.Size = new System.Drawing.Size(105, 17);
             this.button1.TabIndex = 1;
             this.button1.Text = "192.168.127.222";
-            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-//            this.button1.Click += new System.EventHandler(this.button1_Click);
+            this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             this.button1.DoubleClick += new System.EventHandler(this.Device_DoubleClick);
             this.button1.MouseDown += new System.Windows.Forms.MouseEventHandler(this.button1_MouseDown);
             this.button1.MouseEnter += new System.EventHandler(this.button1_MouseEnter);
@@ -72,7 +73,7 @@
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
             this.Name = "Device";
-            this.Size = new System.Drawing.Size(122, 17);
+            this.Size = new System.Drawing.Size(124, 21);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.Device_Paint);
             this.DoubleClick += new System.EventHandler(this.Device_DoubleClick);
             this.ResumeLayout(false);
