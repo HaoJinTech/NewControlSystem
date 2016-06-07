@@ -34,9 +34,9 @@ namespace New_Control_System
             interval = _interval;
             times = _times;
             channel = (IN - 1) * 8 + OUT;
-            m_start = (int)(start * (float)dad.ATTStep);
-            m_end = (int)(end * (float)dad.ATTStep);
-            m_step = (int)(step * (float)dad.ATTStep);
+            m_start = (int)(start / (float)dad.ATTStep);
+            m_end = (int)(end / (float)dad.ATTStep);
+            m_step = (int)(step / (float)dad.ATTStep);
             m_interval = interval / 10;
             m_pause = _pause;
             m_times = times;

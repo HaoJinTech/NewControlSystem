@@ -13,8 +13,8 @@ namespace New_Control_System
 {
     public partial class BigDad : UserControl
     {
-        public double MaximumATT = 125;
-        public double ATTStep = 4;
+        public double MaximumATT = 127;
+        public double ATTStep = 0.25;
         public string login_id = "0";
         public bool login = false;
         public Communication cs;
@@ -33,7 +33,7 @@ namespace New_Control_System
         private int port;
         public int Count_ATT(double value)
         {
-            return (int)(value * ATTStep);
+            return (int)(value / ATTStep);
         }
         public BigDad(Form1 _dad)
         {
@@ -43,6 +43,7 @@ namespace New_Control_System
         }
         public void set_dad(string ip,int _port)
         {
+            p1.Controls.Clear();
             IPaddress = ip;
             port = _port;
             ld.init_list_data(8, 8);
@@ -147,7 +148,7 @@ namespace New_Control_System
                     if (login_id != "0" && ld.list_data[a, b].channel_reverse == login_id)
                     {
                         ucc.SET_SHOW((int)(a * 8 + b));
-                        ucc.SET_VALUE((int)(a * 8 + b), (float)((float)ld.list_data[a, b].channel_value / (float)ATTStep));
+                        ucc.SET_VALUE((int)(a * 8 + b), (float)((float)ld.list_data[a, b].channel_value * (float)ATTStep));
                     }
                 }
             }

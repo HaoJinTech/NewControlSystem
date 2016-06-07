@@ -199,7 +199,7 @@
             this.trackBar1.AutoSize = false;
             this.trackBar1.LargeChange = 20;
             this.trackBar1.Location = new System.Drawing.Point(12, 64);
-            this.trackBar1.Maximum = dad.Count_ATT(dad.MaximumATT);
+            this.trackBar1.Maximum = 254;
             this.trackBar1.Name = "trackBar1";
             this.trackBar1.Size = new System.Drawing.Size(174, 25);
             this.trackBar1.TabIndex = 11;

@@ -249,6 +249,17 @@ namespace NetSocket
         }
 */
 //=====================================================================
+
+        int Count(int n)//要几次方就传递多少
+        {
+            int result;
+            if (n == 0)
+            {
+                return 1;
+            }
+            result = 2 * Count(n - 1);
+            return result;
+        }
 //解包收到的信息=======================================================
 //=====================================================================
 
@@ -290,7 +301,7 @@ namespace NetSocket
                             int data_out = (int)(int.Parse(first_info[2]) - 1);
                             dad.ld.list_data[data_in, data_out].channel_value = int.Parse(first_info[3]);
                             dad.ld.list_data[data_in, data_out].channel_reverse = first_info[4];
-                            dad.ucc.SET_VALUE(data_in * 8 + data_out, (float)(float.Parse(first_info[3]) / dad.ATTStep));
+                            dad.ucc.SET_VALUE(data_in * 8 + data_out, (float)(float.Parse(first_info[3]) * dad.ATTStep));
                         }
                         else if (first_info.Length == 4)
                         {
@@ -298,7 +309,7 @@ namespace NetSocket
                             int data_out = int.Parse(first_info[1]) - 1;
                             dad.ld.list_data[data_in, data_out].channel_value = int.Parse(first_info[2]);
                             dad.ld.list_data[data_in, data_out].channel_reverse = first_info[3];
-                            dad.ucc.SET_VALUE(data_in * 8 + data_out, (float)(float.Parse(first_info[2]) / dad.ATTStep));
+                            dad.ucc.SET_VALUE(data_in * 8 + data_out, (float)(float.Parse(first_info[2]) * dad.ATTStep));
                         }
                     }
 
@@ -397,7 +408,7 @@ namespace NetSocket
                                 int value = int.Parse(ATT_info[2]);
                                 dad.ld.list_data[data_in, data_out].channel_value = value;
                                 dad.ct.Set_ATT(data_in, data_out, value);
-                                dad.ucc.SET_VALUE(data_in * 8 + data_out, (float)((float)value / dad.ATTStep));
+                                dad.ucc.SET_VALUE(data_in * 8 + data_out, (float)((float)value * dad.ATTStep));
                             }
                         }
                         else if (ATT_info.Length == 2)
@@ -410,7 +421,7 @@ namespace NetSocket
                                 int value = int.Parse(ATT_info[1]);
                                 dad.ld.list_data[data_in, data_out].channel_value = value;
                                 dad.ct.Set_ATT(data_in, data_out, value);
-                                dad.ucc.SET_VALUE(data_in * 8 + data_out, (float)((float)value / dad.ATTStep));
+                                dad.ucc.SET_VALUE(data_in * 8 + data_out, (float)((float)value * dad.ATTStep));
                             }
                         }
                     }
@@ -497,8 +508,10 @@ namespace NetSocket
                     string[] countmes = split1[i].Split(' ');
                     if (countmes.Length == 4)
                     {
-                        dad.ATTStep = double.Parse(countmes[3]);
-                        dad.MaximumATT = double.Parse(countmes[2]) / dad.ATTStep;
+                        int county =  Count(int.Parse(countmes[3]));
+                        
+                        dad.ATTStep = 1.0 / (double)county;
+                        dad.MaximumATT = double.Parse(countmes[2]);
                         //dad.ct.numericUpDown1.Value=
                     }
                 }
@@ -628,7 +641,7 @@ namespace NetSocket
             catch (Exception e)
             {
                 dad.st_l1.Text = "Error:";
-                dad.st_l2.Text = e.Message.ToString();
+                dad.st_l2.Text = e.ToString();
                 LogContext.theInst.LogPrint(receivedata + "\r\n" + e.ToString(), 2);
                 if (fail_time >= 1)
                 {

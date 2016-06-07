@@ -74,7 +74,7 @@ namespace New_Control_System
         public void SEND(bool i,double send_value)//发送函数
         {
             //这里书写发送函数
-            string str = "ATT " + IN_no + " " + OUT_no + " " + ((int)(send_value * dad.dad.ATTStep)).ToString();
+            string str = "ATT " + IN_no + " " + OUT_no + " " + ((int)(send_value / dad.dad.ATTStep)).ToString();
             if (i)
             { dad.dad.cs.sendvalue(str, 1000, "ATT", !dad.dad.reserved); }
         }
@@ -285,7 +285,7 @@ namespace New_Control_System
             bigger = false;
             if (USER == dad.dad.login_id)
             {
-                label_ATT.Text = ((double)dad.dad.ld.list_data[IN_no - 1, OUT_no - 1].channel_value / dad.dad.ATTStep).ToString("0.00");
+                label_ATT.Text = ((double)dad.dad.ld.list_data[IN_no - 1, OUT_no - 1].channel_value * dad.dad.ATTStep).ToString("0.00");
             }
         }
 

@@ -17,7 +17,7 @@ namespace New_Control_System
 {
     public partial class Form1 : Form
     {
-        public string title = "Radio Rack Application V2.3.13";
+        public string title = "Radio Rack Application V2.4.1";
         public List<BigDad> list_dad = new List<BigDad>();
         public ListData ld = new ListData();
         public List<Device> Device_list = new List<Device>();

@@ -26,13 +26,14 @@ namespace New_Control_System
             lb_ch.Text = ch_in.ToString();
             lb_ch2.Text = ch_out.ToString();
             numericUpDown1.Value = (decimal)float.Parse(value);
-            trackBar1.Value = (int)(numericUpDown1.Value * (decimal)dad.ATTStep);
+            trackBar1.Maximum = dad.Count_ATT(dad.MaximumATT);
+            trackBar1.Value = (int)(numericUpDown1.Value / (decimal)dad.ATTStep);
         }
         
         private void button1_Click(object sender, EventArgs e)
         {
             string str="";
-            string value = (numericUpDown1.Value * (decimal)dad.ATTStep).ToString();
+            string value = (numericUpDown1.Value / (decimal)dad.ATTStep).ToString();
             str = "ATT " + ch_in + " " + ch_out + " " + value;
             dad.cs.sendvalue(str, 1000, "ATT", !dad.reserved);
             this.Close();
@@ -76,7 +77,7 @@ namespace New_Control_System
                 }
                 re_b = re_b.Substring(0, re_b.Length - 1);
                 numericUpDown1.Value = (decimal)float.Parse(re_b);
-                trackBar1.Value = (int)(numericUpDown1.Value * (decimal)dad.ATTStep);
+                trackBar1.Value = (int)(numericUpDown1.Value / (decimal)dad.ATTStep);
             }
         }
 
@@ -87,7 +88,7 @@ namespace New_Control_System
 
         private void trackBar1_ValueChanged(object sender, EventArgs e)
         {
-            numericUpDown1.Value = (decimal)((float)trackBar1.Value / (float)dad.ATTStep);
+            numericUpDown1.Value = (decimal)((float)trackBar1.Value * (float)dad.ATTStep);
         }
     }
 }

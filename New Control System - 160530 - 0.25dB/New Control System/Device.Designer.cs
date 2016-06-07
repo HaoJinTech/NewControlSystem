@@ -74,7 +74,6 @@
             this.Controls.Add(this.button1);
             this.Name = "Device";
             this.Size = new System.Drawing.Size(124, 21);
-            this.Paint += new System.Windows.Forms.PaintEventHandler(this.Device_Paint);
             this.DoubleClick += new System.EventHandler(this.Device_DoubleClick);
             this.ResumeLayout(false);
 

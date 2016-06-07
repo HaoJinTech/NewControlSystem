@@ -230,7 +230,7 @@ namespace New_Control_System
 
         private void button1_Click(object sender, EventArgs e)
         {
-            dad.cs.sendvalue("SETALL " + ((int)dad.MaximumATT * dad.ATTStep).ToString(), 1000, "SETALL", false);
+            dad.cs.sendvalue("SETALL " + ((int)(dad.MaximumATT / dad.ATTStep)).ToString(), 1000, "SETALL", false);
         }
 
     }

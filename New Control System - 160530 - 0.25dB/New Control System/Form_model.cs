@@ -1212,7 +1212,7 @@ namespace New_Control_System
                 }
                 else
                 {
-                    if (!dad.dad.cs.sendvalue(String.Format("SA {0} {1};{2} {3};{4} {5};{6} {7}", count_number(comboBox1.Text), ((init_db[0] - int.Parse(label_db2_11.Text)) * dad.dad.ATTStep).ToString(), count_number(comboBox3.Text), ((init_db[1] - int.Parse(label_db2_12.Text)) * dad.dad.ATTStep).ToString(), count_number(comboBox5.Text), ((init_db[2] - int.Parse(label_db2_13.Text)) * dad.dad.ATTStep).ToString(), count_number(comboBox7.Text), ((init_db[3] - int.Parse(label_db2_14.Text)) * dad.dad.ATTStep).ToString()), 2000, "sa", !dad.dad.reserved))
+                    if (!dad.dad.cs.sendvalue(String.Format("SA {0} {1};{2} {3};{4} {5};{6} {7}", count_number(comboBox1.Text), ((init_db[0] - double.Parse(label_db2_11.Text)) / dad.dad.ATTStep).ToString(), count_number(comboBox3.Text), ((init_db[1] - double.Parse(label_db2_12.Text)) / dad.dad.ATTStep).ToString(), count_number(comboBox5.Text), ((init_db[2] - double.Parse(label_db2_13.Text)) / dad.dad.ATTStep).ToString(), count_number(comboBox7.Text), ((init_db[3] - double.Parse(label_db2_14.Text)) / dad.dad.ATTStep).ToString()), 2000, "sa", !dad.dad.reserved))
                     {
                         timer_send.Enabled = false;
                         CAR1_ISRUN = false;
@@ -1237,7 +1237,7 @@ namespace New_Control_System
                 }
                 else
                 {
-                    if (!dad.dad.cs.sendvalue(String.Format("SA {0} {1};{2} {3};{4} {5};{6} {7}", count_number(comboBox2.Text), (init_db[0] - int.Parse(label_db_11.Text)).ToString(), count_number(comboBox4.Text), ((init_db[1] - int.Parse(label_db_12.Text)) * dad.dad.ATTStep).ToString(), count_number(comboBox6.Text), ((init_db[2] - int.Parse(label_db_13.Text)) * dad.dad.ATTStep).ToString(), count_number(comboBox8.Text), ((init_db[3] - int.Parse(label_db_14.Text)) * dad.dad.ATTStep).ToString()), 2000, "sa", !dad.dad.reserved))
+                    if (!dad.dad.cs.sendvalue(String.Format("SA {0} {1};{2} {3};{4} {5};{6} {7}", count_number(comboBox2.Text), (init_db[0] - double.Parse(label_db_11.Text)).ToString(), count_number(comboBox4.Text), ((init_db[1] - double.Parse(label_db_12.Text)) / dad.dad.ATTStep).ToString(), count_number(comboBox6.Text), ((init_db[2] - double.Parse(label_db_13.Text)) / dad.dad.ATTStep).ToString(), count_number(comboBox8.Text), ((init_db[3] - double.Parse(label_db_14.Text)) / dad.dad.ATTStep).ToString()), 2000, "sa", !dad.dad.reserved))
                     { timer_send.Enabled = false; }
                     //cm.sendvalue(String.Format("ATT {0} {1};{2} {3};{4} {5};{6} {7}", (comboBox1.SelectedIndex + 1).ToString(), label_db2_11.Text, (comboBox3.SelectedIndex + 1).ToString(), label_db2_12.Text, (comboBox5.SelectedIndex + 1).ToString(), label_db2_13.Text, (comboBox7.SelectedIndex + 1).ToString(), label_db2_14.Text));
                     Global.old_value_car1[0] = int.Parse(label_db_11.Text);

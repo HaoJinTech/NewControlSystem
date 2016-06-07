@@ -42,12 +42,12 @@ namespace New_Control_System
             dad.cs.sendvalue("CHA", 1000, "CHA", false);
             tbar1.Maximum = dad.Count_ATT(dad.MaximumATT);
             numericUpDown1.Maximum = (decimal)dad.MaximumATT;
-            numericUpDown2.Minimum = (decimal)(1.0 / dad.ATTStep);
+            numericUpDown2.Minimum = (decimal)(dad.ATTStep);
             numericUpDown2.DecimalPlaces = 2;
             numericUpDown1.DecimalPlaces = 2;
             sweep1.n_end.Maximum = (decimal)dad.MaximumATT;
             sweep1.n_end.Value = sweep1.n_end.Maximum;
-            sweep1.n_step.Minimum = (decimal)(1.0 / dad.ATTStep);
+            sweep1.n_step.Minimum = (decimal)(dad.ATTStep);
             sweep1.n_step.Value = sweep1.n_step.Minimum;
         }
 
@@ -109,7 +109,7 @@ namespace New_Control_System
                     else if (dad.ld.list_data[a, b].channel_reverse == dad.login_id)
                     {
                         grb[a, b].USER = dad.ld.list_data[a, b].channel_reverse;
-                        grb[a, b].Current_value = (float)dad.ld.list_data[a, b].channel_value / (float)dad.ATTStep;
+                        grb[a, b].Current_value = (float)dad.ld.list_data[a, b].channel_value * (float)dad.ATTStep;
                         grb[a, b].BAND_CONTROL();
                         port_out[b].Checked = true;
                         port_out[b].Enabled = true;
@@ -183,7 +183,7 @@ namespace New_Control_System
                 {
                     grb[a, b] = new att_button(this);
                     grb[a, b].INIT(a + 1, b + 1);
-                    grb[a, b].Current_value = (float)dad.ld.list_data[a, b].channel_value / (float)dad.ATTStep;
+                    grb[a, b].Current_value = (float)dad.ld.list_data[a, b].channel_value * (float)dad.ATTStep;
                     grb[a, b].Width = io_length;
                     grb[a, b].Height = io_height;
                     grb[a, b].Top = port_in[a].Top;
@@ -207,7 +207,7 @@ namespace New_Control_System
                 tx.Value = decimal.Parse(current.Text);
                 tx.Minimum = 0;
                 tx.Maximum = (decimal)dad.MaximumATT;
-                tx.Increment = (decimal)(1.0/dad.ATTStep);
+                tx.Increment = (decimal)(dad.ATTStep);
                 tx.DecimalPlaces = 2;
                 tx.ValueChanged += new EventHandler(tx_TextChanged);
                 tx.KeyPress += new KeyPressEventHandler(tx_KeyPress);
@@ -231,7 +231,7 @@ namespace New_Control_System
             int ch = (int)current.Tag;
             int b_in = ch / 8 + 1;
             int b_out = ch % 8 + 1;
-            dad.cs.sendvalue("ATT " + b_in + " " + b_out + " " + ((int)(current.Value * (decimal)dad.ATTStep)).ToString(), 1000, "ATT", !dad.reserved);
+            dad.cs.sendvalue("ATT " + b_in + " " + b_out + " " + dad.Count_ATT((double)current.Value).ToString(), 1000, "ATT", !dad.reserved);
             current.Dispose();
         }
 
@@ -243,7 +243,7 @@ namespace New_Control_System
                 int ch=(int)current.Tag;
                 int b_in = ch / 8 + 1;
                 int b_out = ch % 8 + 1;
-                dad.cs.sendvalue("ATT " + b_in + " " + b_out + " " + ((int)(current.Value * (decimal)dad.ATTStep)).ToString(), 1000, "ATT", !dad.reserved);
+                dad.cs.sendvalue("ATT " + b_in + " " + b_out + " " + dad.Count_ATT((double)current.Value).ToString(), 1000, "ATT", !dad.reserved);
                 current.Dispose();
             }
             else if (e.KeyChar == 27)
@@ -314,7 +314,7 @@ namespace New_Control_System
         {
             if (dad.ld.list_data[pin, pou].channel_reverse == dad.login_id)
             {
-                grb[pin, pou].Current_value = (float)value / (float)dad.ATTStep;
+                grb[pin, pou].Current_value = (float)value * (float)dad.ATTStep;
             }
             else
             {
@@ -498,9 +498,23 @@ namespace New_Control_System
         private void button4_Click(object sender, EventArgs e)
         {
             string str = "sn ";
+            string oldip = dad.IPaddress;
+            string newip = textBox1.Text;
             str += textBox1.Text + " " + textBox3.Text + " " + textBox2.Text;
             dad.cs.sendvalue(str, 3000, "", false);
-            dad.Logt_out();
+            dad.cs.IOSocket.tcpclient.Client.Send(Encoding.ASCII.GetBytes("REBOOT\r\n"));
+            dad.cs.IOSocket.tcpclient.Client.Shutdown(System.Net.Sockets.SocketShutdown.Both);
+            dad.cs.IOSocket.tcpclient.Client.Close();       
+            //dad.Logt_out();     
+            for (int i = 0; i < dad.dad.Device_list.Count; i++)
+            {
+                if (dad.dad.Device_list[i].IP_info == oldip)
+                {
+                    dad.dad.Device_list[i].close();
+                    dad.dad.Device_list[i].set_IP(newip, "50000");
+                }
+            }
+            //dad.set_dad(newip, 50000);
         }
 
         private void panel1_Paint(object sender, PaintEventArgs e)
@@ -527,9 +541,9 @@ namespace New_Control_System
                         {
                             dad.cs.sendvalue(str, 3000, "ATT", !dad.reserved);
                             Thread.Sleep(30);
-                            str = "ATT " + (i + 1).ToString() + " " + (o + 1).ToString() + " " + ((int)(numericUpDown1.Value * (decimal)dad.ATTStep)).ToString();
+                            str = "ATT " + (i + 1).ToString() + " " + (o + 1).ToString() + " " + dad.Count_ATT((double)numericUpDown1.Value).ToString();
                         }
-                        str += " " + (i + 1).ToString() + " " + (o + 1).ToString() + " " + ((int)(numericUpDown1.Value * (decimal)dad.ATTStep)).ToString();
+                        str += " " + (i + 1).ToString() + " " + (o + 1).ToString() + " " + dad.Count_ATT((double)numericUpDown1.Value).ToString();
                     }
                 }
             }
@@ -640,7 +654,7 @@ namespace New_Control_System
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            tbar1.Value = (int)(numericUpDown1.Value * (decimal)dad.ATTStep);
+            tbar1.Value = (int)(numericUpDown1.Value / (decimal)dad.ATTStep);
             if (dad.reserved)
             {
                 bool ok = false;
@@ -656,11 +670,11 @@ namespace New_Control_System
                             {
                                 dad.cs.sendvalue(str, 1000, "ATT", !dad.reserved);
                                 Thread.Sleep(30);
-                                str = "ATT " + (i + 1).ToString() + " " + (o + 1).ToString() + " " + ((int)(numericUpDown1.Value * (decimal)dad.ATTStep)).ToString();
+                                str = "ATT " + (i + 1).ToString() + " " + (o + 1).ToString() + " " + dad.Count_ATT((double)numericUpDown1.Value).ToString();
                             }
                             else
                             {
-                                str += " " + (i + 1).ToString() + " " + (o + 1).ToString() + " " + ((int)(numericUpDown1.Value * (decimal)dad.ATTStep)).ToString();
+                                str += " " + (i + 1).ToString() + " " + (o + 1).ToString() + " " + dad.Count_ATT((double)numericUpDown1.Value).ToString();
                             }
                         }
                     }
@@ -740,7 +754,7 @@ namespace New_Control_System
 
         private void tbar1_Scroll(object sender, EventArgs e)
         {
-            numericUpDown1.Value = (decimal)((float)tbar1.Value /(float)dad.ATTStep);
+            numericUpDown1.Value = (decimal)((float)tbar1.Value * (float)dad.ATTStep);
             //if (dad.reserved)
             //{
             //    bool ok = false;
