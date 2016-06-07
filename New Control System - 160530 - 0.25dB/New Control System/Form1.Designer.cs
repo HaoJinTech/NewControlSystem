@@ -48,13 +48,14 @@
             this.lb_fpot = new System.Windows.Forms.Label();
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.p_wel = new System.Windows.Forms.Panel();
-            this.login1 = new New_Control_System.login();
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.listBox1 = new System.Windows.Forms.ListBox();
             this.addNewDeviceToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.contextMenuStrip1 = new System.Windows.Forms.ContextMenuStrip(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.login1 = new New_Control_System.login();
+            this.button2 = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.statusStrip1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -178,8 +179,9 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)));
+            this.groupBox2.Controls.Add(this.button2);
             this.groupBox2.Controls.Add(this.pl_d);
             this.groupBox2.Location = new System.Drawing.Point(3, 26);
             this.groupBox2.Name = "groupBox2";
@@ -193,10 +195,9 @@
             this.pl_d.AutoScroll = true;
             this.pl_d.Controls.Add(this.label1);
             this.pl_d.Controls.Add(this.lb_fpot);
-            this.pl_d.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pl_d.Location = new System.Drawing.Point(3, 17);
+            this.pl_d.Location = new System.Drawing.Point(3, 39);
             this.pl_d.Name = "pl_d";
-            this.pl_d.Size = new System.Drawing.Size(133, 370);
+            this.pl_d.Size = new System.Drawing.Size(133, 348);
             this.pl_d.TabIndex = 0;
             this.pl_d.Paint += new System.Windows.Forms.PaintEventHandler(this.pl_d_Paint);
             this.pl_d.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pl_d_MouseClick);
@@ -210,6 +211,7 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Click to Add a Device";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label1.Visible = false;
             this.label1.Click += new System.EventHandler(this.label1_Click);
             this.label1.MouseClick += new System.Windows.Forms.MouseEventHandler(this.pl_d_MouseClick);
             // 
@@ -223,9 +225,9 @@
             // 
             // tabControl1
             // 
-            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
             this.tabControl1.Location = new System.Drawing.Point(143, 26);
             this.tabControl1.Multiline = true;
             this.tabControl1.Name = "tabControl1";
@@ -242,17 +244,6 @@
             this.p_wel.Name = "p_wel";
             this.p_wel.Size = new System.Drawing.Size(801, 542);
             this.p_wel.TabIndex = 19;
-            // 
-            // login1
-            // 
-            this.login1.AutoSize = true;
-            this.login1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
-            this.login1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.login1.Location = new System.Drawing.Point(0, 0);
-            this.login1.Name = "login1";
-            this.login1.Size = new System.Drawing.Size(801, 542);
-            this.login1.TabIndex = 0;
-            this.login1.Load += new System.EventHandler(this.login1_Load);
             // 
             // button1
             // 
@@ -323,6 +314,27 @@
             this.pictureBox1.TabIndex = 20;
             this.pictureBox1.TabStop = false;
             // 
+            // login1
+            // 
+            this.login1.AutoSize = true;
+            this.login1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
+            this.login1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.login1.Location = new System.Drawing.Point(0, 0);
+            this.login1.Name = "login1";
+            this.login1.Size = new System.Drawing.Size(801, 542);
+            this.login1.TabIndex = 0;
+            this.login1.Load += new System.EventHandler(this.login1_Load);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(6, 12);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(128, 23);
+            this.button2.TabIndex = 1;
+            this.button2.Text = "Add Device";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 12F);
@@ -390,6 +402,7 @@
         public System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.ToolStripMenuItem addNewDeviceToolStripMenuItem;
         private System.Windows.Forms.ContextMenuStrip contextMenuStrip1;
+        private System.Windows.Forms.Button button2;
     }
 }
 

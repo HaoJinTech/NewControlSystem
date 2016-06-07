@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button9 = new System.Windows.Forms.Button();
             this.bt_admin = new System.Windows.Forms.Button();
@@ -60,9 +61,7 @@
             this.tabPage5 = new System.Windows.Forms.TabPage();
             this.tabPage1 = new System.Windows.Forms.TabPage();
             this.label5 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.tabPage3 = new System.Windows.Forms.TabPage();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tabPage2 = new System.Windows.Forms.TabPage();
             this.panel2 = new System.Windows.Forms.Panel();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
@@ -76,7 +75,10 @@
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.csv1 = new New_Control_System.CSV();
+            this.timer_refresh = new System.Windows.Forms.Timer(this.components);
             this.groupBox1.SuspendLayout();
             this.tabControl1.SuspendLayout();
             this.tpg1.SuspendLayout();
@@ -85,11 +87,11 @@
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             this.tabPage5.SuspendLayout();
             this.tabPage1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.tabPage3.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.tabPage2.SuspendLayout();
             this.panel2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -238,7 +240,7 @@
             // lb_user
             // 
             this.lb_user.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.lb_user.BackColor = System.Drawing.Color.LightGray;
+            this.lb_user.BackColor = System.Drawing.Color.Gold;
             this.lb_user.BorderStyle = System.Windows.Forms.BorderStyle.Fixed3D;
             this.lb_user.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.lb_user.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
@@ -532,19 +534,6 @@
             this.label5.TabIndex = 1;
             this.label5.Text = "8x8 BiDirectional";
             // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
-                        | System.Windows.Forms.AnchorStyles.Left)
-                        | System.Windows.Forms.AnchorStyles.Right)));
-            this.pictureBox1.Image = global::New_Control_System.Properties.Resources.show_connect1;
-            this.pictureBox1.Location = new System.Drawing.Point(94, 26);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(518, 208);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
-            // 
             // tabPage3
             // 
             this.tabPage3.Controls.Add(this.pictureBox2);
@@ -554,18 +543,6 @@
             this.tabPage3.TabIndex = 5;
             this.tabPage3.Text = "Diagram";
             this.tabPage3.UseVisualStyleBackColor = true;
-            // 
-            // pictureBox2
-            // 
-            this.pictureBox2.BackColor = System.Drawing.SystemColors.Control;
-            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.pictureBox2.Image = global::New_Control_System.Properties.Resources.SDSA;
-            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(750, 416);
-            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
-            this.pictureBox2.TabIndex = 0;
-            this.pictureBox2.TabStop = false;
             // 
             // tabPage2
             // 
@@ -713,6 +690,31 @@
             this.label1.TabIndex = 0;
             this.label1.Text = "IP Address:";
             // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom)
+                        | System.Windows.Forms.AnchorStyles.Left)
+                        | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureBox1.Image = global::New_Control_System.Properties.Resources.show_connect1;
+            this.pictureBox1.Location = new System.Drawing.Point(94, 26);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(518, 208);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.TabStop = false;
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBox2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.pictureBox2.Image = global::New_Control_System.Properties.Resources.SDSA;
+            this.pictureBox2.Location = new System.Drawing.Point(0, 0);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(750, 416);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox2.TabIndex = 0;
+            this.pictureBox2.TabStop = false;
+            // 
             // csv1
             // 
             this.csv1.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
@@ -722,6 +724,11 @@
             this.csv1.Size = new System.Drawing.Size(744, 410);
             this.csv1.TabIndex = 0;
             this.csv1.Load += new System.EventHandler(this.csv1_Load);
+            // 
+            // timer_refresh
+            // 
+            this.timer_refresh.Interval = 1000;
+            this.timer_refresh.Tick += new System.EventHandler(this.timer_refresh_Tick);
             // 
             // Control
             // 
@@ -742,12 +749,12 @@
             this.tabPage5.ResumeLayout(false);
             this.tabPage1.ResumeLayout(false);
             this.tabPage1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.tabPage3.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.tabPage2.ResumeLayout(false);
             this.panel2.ResumeLayout(false);
             this.panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -803,5 +810,6 @@
         private System.Windows.Forms.TabPage tabPage5;
         private CSV csv1;
         public System.Windows.Forms.Button button9;
+        public System.Windows.Forms.Timer timer_refresh;
     }
 }

@@ -309,6 +309,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="HJ.ico" />
+    <None Include="Resources\minus.png" />
     <None Include="Resources\disconnectbt2.png" />
     <None Include="Resources\connectbt1.png" />
     <None Include="Resources\connectbt.png" />

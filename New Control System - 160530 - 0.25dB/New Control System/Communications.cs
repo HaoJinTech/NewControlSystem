@@ -508,11 +508,18 @@ namespace NetSocket
                     string[] countmes = split1[i].Split(' ');
                     if (countmes.Length == 4)
                     {
-                        int county =  Count(int.Parse(countmes[3]));
-                        
+                        int county = Count(int.Parse(countmes[3]));
+
                         dad.ATTStep = 1.0 / (double)county;
                         dad.MaximumATT = double.Parse(countmes[2]);
-                        //dad.ct.numericUpDown1.Value=
+                    }
+                    else if (countmes.Length == 2)
+                    {
+                        
+                    }
+                    else if (countmes.Length == 3)
+                    {
+
                     }
                 }
                 else if (split1[i].StartsWith("KICKED"))

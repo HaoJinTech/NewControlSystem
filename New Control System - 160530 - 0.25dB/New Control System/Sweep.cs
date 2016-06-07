@@ -201,7 +201,7 @@ namespace New_Control_System
         {
             //t_query.Enabled = cb_q.Checked;
         }
-
+        int tikertime = 0;
         private void timer_run_Tick(object sender, EventArgs e)
         {
             int li = timer_run.Interval;

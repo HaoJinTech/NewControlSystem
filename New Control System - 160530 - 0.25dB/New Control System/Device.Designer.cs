@@ -35,10 +35,14 @@
             // button2
             // 
             this.button2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.button2.BackColor = System.Drawing.Color.Red;
-            this.button2.Location = new System.Drawing.Point(101, 0);
+            this.button2.BackgroundImage = global::New_Control_System.Properties.Resources.minus;
+            this.button2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Zoom;
+            this.button2.FlatAppearance.BorderSize = 0;
+            this.button2.FlatAppearance.MouseOverBackColor = System.Drawing.Color.PaleTurquoise;
+            this.button2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button2.Location = new System.Drawing.Point(104, 1);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(23, 21);
+            this.button2.Size = new System.Drawing.Size(19, 19);
             this.button2.TabIndex = 2;
             this.button2.UseVisualStyleBackColor = false;
             this.button2.Click += new System.EventHandler(this.button2_Click);
@@ -50,10 +54,10 @@
             this.button1.Font = new System.Drawing.Font("微软雅黑", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button1.Image = global::New_Control_System.Properties.Resources.connectbt1;
             this.button1.ImageAlign = System.Drawing.ContentAlignment.MiddleLeft;
-            this.button1.Location = new System.Drawing.Point(0, 2);
+            this.button1.Location = new System.Drawing.Point(0, 1);
             this.button1.Name = "button1";
             this.button1.RightToLeft = System.Windows.Forms.RightToLeft.No;
-            this.button1.Size = new System.Drawing.Size(105, 17);
+            this.button1.Size = new System.Drawing.Size(103, 19);
             this.button1.TabIndex = 1;
             this.button1.Text = "192.168.127.222";
             this.button1.TextAlign = System.Drawing.ContentAlignment.MiddleRight;

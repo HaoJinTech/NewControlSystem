@@ -373,7 +373,7 @@ namespace New_Control_System
 
         private void label1_Click(object sender, EventArgs e)
         {
-            da.show_add();
+            //da.show_add();
         }
 
         private void pl_d_Paint(object sender, PaintEventArgs e)
@@ -388,12 +388,17 @@ namespace New_Control_System
 
         private void pl_d_MouseClick(object sender, MouseEventArgs e)
         {
-            da.show_add();
+            //da.show_add();
         }
 
         private void login1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            da.show_add();
         }
 
     }

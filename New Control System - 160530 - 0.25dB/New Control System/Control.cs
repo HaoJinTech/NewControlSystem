@@ -103,14 +103,17 @@ namespace New_Control_System
                         grb[a, b].USER = "";
                         grb[a, b].IS_SELECT = false;
                         grb[a, b].UNBAND_CONTROL();
+                        bool nowstat = port_out[b].Checked;
                         port_out[b].Enabled = true;
-                        port_out[b].Checked = false;
+                        port_out[b].Checked = nowstat;
                     }
                     else if (dad.ld.list_data[a, b].channel_reverse == dad.login_id)
                     {
+                        bool nwsta = grb[a, b].IS_SELECT;
                         grb[a, b].USER = dad.ld.list_data[a, b].channel_reverse;
                         grb[a, b].Current_value = (float)dad.ld.list_data[a, b].channel_value * (float)dad.ATTStep;
                         grb[a, b].BAND_CONTROL();
+                        grb[a, b].IS_SELECT = nwsta;
                         port_out[b].Checked = true;
                         port_out[b].Enabled = true;
                     }
@@ -817,6 +820,11 @@ namespace New_Control_System
         private void csv1_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void timer_refresh_Tick(object sender, EventArgs e)
+        {
+            dad.cs.sendvalue("ALLCH", 2000, "ALLCH", false);
         }
     }
 }

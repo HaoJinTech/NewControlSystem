@@ -50,10 +50,10 @@ namespace New_Control_System
             {
                 if (dad.list_dad[i].IPaddress == IP_info)
                 {
+                    dad.list_dad[i].ct.timer_refresh.Enabled = false;
                     dad.list_dad[i].ct.sweep1.timer_run.Enabled = false;
                     dad.list_dad[i].cs.closeConnect();
                     dad.list_dad[i].Logt_out();
-                    dad.list_dad[i].Dispose();
                     dad.list_dad.RemoveAt(i);
                     dad.tabControl1.TabPages.RemoveAt(i);
                     connection = false;
@@ -117,6 +117,7 @@ namespace New_Control_System
                     dad.tabControl1.SelectedIndex = dad.tabControl1.TabCount - 1;
                     newdad.cs.sendvalue("ALLCH", 1000, "ALLCH", false);
                     connection = true;
+                    newdad.ct.timer_refresh.Enabled = true;
                 }
                 else
                 {
